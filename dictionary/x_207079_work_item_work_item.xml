@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" label="Work Item" max_length="40" name="x_207079_work_item_work_item" type="collection">
+        <element label="Assigned To" max_length="32" name="u_assigned_to" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="application" label="Category" mandatory="true" max_length="40" name="u_category" type="string">
+            <choice>
+                <element label="Application" sequence="0" value="application"/>
+                <element label="Infrastructure" sequence="1" value="infrastructure"/>
+                <element label="Operations" sequence="2" value="operations"/>
+            </choice>
+        </element>
+        <element label="Date Completed" max_length="40" name="u_date_completed" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="240" name="u_description" type="string"/>
+        <element label="Level of Effort" mandatory="true" max_length="40" name="u_level_of_effort" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="new" label="State" mandatory="true" max_length="40" name="u_state" type="string">
+            <choice>
+                <element label="New" sequence="0" value="new"/>
+                <element label="Approved" sequence="1" value="approved"/>
+                <element label="Committed" sequence="2" value="committed"/>
+                <element label="Done" sequence="3" value="done"/>
+                <element label="Removed" sequence="4" value="removed"/>
+                <element label="Archived" sequence="5" value="archived"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="green" label="Status" mandatory="true" max_length="40" name="u_status" type="string">
+            <choice>
+                <element label="Green" sequence="0" value="green"/>
+                <element label="Yellow" sequence="1" value="yellow"/>
+                <element label="Red" sequence="2" value="red"/>
+            </choice>
+        </element>
+        <element label="Target Date" mandatory="true" max_length="40" name="u_target_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Title" mandatory="true" max_length="120" name="u_title" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Work Notes" max_length="4000" name="u_work_notes" type="journal"/>
+        <index name="index">
+            <element name="u_assigned_to"/>
+        </index>
+    </element>
+</database>
